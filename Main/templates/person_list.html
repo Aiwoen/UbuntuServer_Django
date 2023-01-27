@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonList</title>
+</head>
+<body>
+    
+    <h3>PersonList</h3>
+    <ul>
+        {% for person in persons %}
+            <li>姓名：{{ person.p_name }} 年齡：{{ person.p_age }} </li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
