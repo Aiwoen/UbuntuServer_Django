@@ -7,15 +7,29 @@
     <title>Class</title>
 </head>
 <body>
+    <font>用戶IP：</font>{{ ip }}
     <h3>Class List</h3>
     <hr>
     {% for class in classes %}
     <li>
-    {{ class.c_name }}
-    </li>
-    
-    
-    {% endfor %}
 
+        <a href={% url 'class_students' class.id %}>
+            {{ class.c_name }}
+        </a>
+    </li>
+    {% endfor %}
+    <table>
+        <form action= {% url 'newclass' %}>
+            <tr>
+                <td>
+                    <input type="text" name="cn">
+                </td>
+                <td>
+                    <input type="submit" value="送出">
+                </td>
+            </tr>
+        </form>
+
+    </table>
 </body>
 </html>

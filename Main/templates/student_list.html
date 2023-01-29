@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>studentslist</title>
+</head>
+<body>
+    <form action={% url 'classlist' %}>
+        <input type="submit" value="返回">
+        </form>
+    <h3>Add Student</h3>
+    <form action={% url 'class_student_add' class_id %} method="get">
+        姓名：<input type="text" name="n"><br>
+        年齡：<input type="text" name="a"><br>
+        <input type="submit" value="創建">
+        </form>
+
+    <hr>
+    <h3>Students List</h3>
+    <table>
+        <tr>
+            <td>&emsp;&nbsp;姓名</td>
+            <td></td>
+            <td>年齡</td>
+            <td style="text-align:center">刪除</td>
+        </tr>
+    {% for studentslist in class_students %}
+        <tr>    
+        <td><li name="z">{{ studentslist.s_name }} </li></td>
+        <td>,</td>
+        <td><font>{{ studentslist.s_sage }} </font></td>
+        <td>
+            <form action={% url 'class_student_delete' studentslist.id class_id %}>
+            <input type="submit" value="刪除">
+            </form>
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
